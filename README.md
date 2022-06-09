@@ -1,7 +1,11 @@
-local IDS = {31231241}
+-- Canonical way to get a service
+local Players = game:GetService("Players")
 
-game.Players.PlayedAdded:Connect(function(player)
-    if not table.find(IDS,player.UserId) then --If the UserID value is not in the table this returns nil. In Lua nil equals false.
-        player:Kick("You are not whitelisted on this server.")
+-- Use UserIds instead; usernames can change, UserIds cannot
+local WHITELIST = {"fwq"}
+
+Players.PlayerAdded:Connect(function (player)
+    if not table.find(WHITELIST, player.Name) then
+        player:Kick()
     end
 end)
