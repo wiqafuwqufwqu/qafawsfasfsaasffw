@@ -1,7 +1,7 @@
-local IDS = {1,3312}
+local whitelistUserIDs = {31231241}
 
-if table.find(IDS,game,Players,LocalPlayer,UserId) Then
-Print("Whitelisted")
-else if
-Player:Kick("RETARD!!")
-end
+game.Players.PlayedAdded:Connect(function(player)
+    if not table.find(whitelistUserIDs,player.UserId) then --If the UserID value is not in the table this returns nil. In Lua nil equals false.
+        player:Kick("You are not whitelisted on this server.")
+    end
+end)
