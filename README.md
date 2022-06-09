@@ -1,4 +1,4 @@
-local IDS = {1,303349738}
+local IDS = {1,3312}
 
 if table.find(IDS,game,Players,LocalPlayer,UserId) Then
 Print("Whitelisted")
